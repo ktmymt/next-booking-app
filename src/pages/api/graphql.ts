@@ -1,7 +1,11 @@
 import { ApolloServer } from "apollo-server-micro"
 import { PageConfig } from "next"
+import { schema } from "../../graphql/schema"
+import { createContext } from "../../graphql/context"
 
 const apolloServer = new ApolloServer({
+  context: createContext,
+  schema: schema,
   debug: true,
   introspection: true,
 })
